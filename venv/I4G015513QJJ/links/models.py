@@ -1,5 +1,7 @@
+from I4G015513QJJ.links.views import ActiveLinkView
 from django.db import models
 from datetime import datetime
+
 
 # Create your models here.
 class links (models.Model) :
@@ -9,3 +11,5 @@ class links (models.Model) :
     author = models.ForeignKey(get_user_model=())
     created_date = models.DateTimeField (auto_now_add=False, auto_now=False,blank=True)
     active =  models.BooleanField (True)
+    objects = models.Manager()
+    public = ActiveLinkView.Manager()
